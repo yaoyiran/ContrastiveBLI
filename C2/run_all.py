@@ -80,8 +80,12 @@ for (lang1, lang2) in lang_pairs:
     if train_size == "0k":
         DIR_TRAIN_DICT = None
     else:
-        DIR_TRAIN_DICT = "/media/data/xling-eval/bli_datasets/{}-{}/yacle.train.freq.{}.{}-{}.tsv".format(lang1,lang2,train_size,lang1,lang2)
+        if lang1 in XLING:
+            DIR_TRAIN_DICT = "/rds-d6/user/yl711/hpc-work/media/data/xling-eval/bli_datasets/{}-{}/yacle.train.freq.{}.{}-{}.tsv".format(lang1, lang2, train_size , lang1, lang2)
+        else:
+            DIR_TRAIN_DICT = "/rds-d6/user/yl711/hpc-work/media/data/panlex-bli/lexicons/all/{}-{}/{}-{}.train.{}.cc.trans".format(lang1, lang2, lang1, lang2, str(int(train_size.replace('k', '')) * 1000))
 
+ 
     train_dir = DIR_NEW + "{}2{}_train.txt".format(lang1,lang2)
 
     output_dir = output_root + "mbert_{}2{}_{}".format(lang1,lang2,train_size)
