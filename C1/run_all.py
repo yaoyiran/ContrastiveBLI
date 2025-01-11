@@ -68,9 +68,9 @@ for (lang1, lang2) in lang_pairs:
         aux_emb_src_dir = None # None if not unsupervised setup
         aux_emb_tgt_dir = None 
         if lang1 in XLING:
-            DIR_TRAIN_DICT = "/rds-d6/user/yl711/hpc-work/media/data/xling-eval/bli_datasets/{}-{}/yacle.train.freq.{}.{}-{}.tsv".format(lang1, lang2, size_train , lang1, lang2)
+            DIR_TRAIN_DICT = "/media/data/xling-eval/bli_datasets/{}-{}/yacle.train.freq.{}.{}-{}.tsv".format(lang1, lang2, size_train , lang1, lang2)
         else:
-            DIR_TRAIN_DICT = "/rds-d6/user/yl711/hpc-work/media/data/panlex-bli/lexicons/all/{}-{}/{}-{}.train.{}.cc.trans".format(lang1, lang2, lang1, lang2, str(int(size_train.replace('k', '')) * 1000))
+            DIR_TRAIN_DICT = "/media/data/panlex-bli/lexicons/all/{}-{}/{}-{}.train.{}.cc.trans".format(lang1, lang2, lang1, lang2, str(int(size_train.replace('k', '')) * 1000))
 
     os.system('CUDA_VISIBLE_DEVICES=0  python ./src/main.py --l1 {} --l2 {} --self_learning --save_aligned_we --train_size {} --emb_src_dir {} --emb_tgt_dir {} --aux_emb_src_dir {} --aux_emb_tgt_dir {} --train_dict_dir {} --test_dict_dir {} --save_dir {}'.format(lang1, lang2, size_train, DIR_EMB_SRC, DIR_EMB_TGT, aux_emb_src_dir, aux_emb_tgt_dir, DIR_TRAIN_DICT, DIR_TEST_DICT, SAVE_DIR))
 
