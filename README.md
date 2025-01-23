@@ -23,6 +23,9 @@ In addition to BLI, we encourage interested readers to try C1-aligned 300-dim (f
 
 **Update B**: the unsupervised ContrastiveBLI is used as a baseline in our follow-up work [SAIL](https://github.com/cambridgeltl/sail-bli) (ACL 2024). Please see the unsupervised results of ContrastiveBLI in [SAIL](https://github.com/cambridgeltl/sail-bli).
 
+**Update C**: compared with mapping-based approaches including our C1 and C2 here, we find in our follow-up work [Prompt4BLI](https://github.com/cambridgeltl/prompt4bli) (EMNLP 2023) and [SAIL](https://github.com/cambridgeltl/sail-bli) (ACL 2024) that prompting pretrained LLMs (not instruction-tuned on machine translation data) for BLI can typically achieve better BLI performance. But mapping-based methods still have the following advantages: they are computationally much more efficient and temporarily support more languages (e.g., fastText provides pretrained static
+WEs for 294 languages while LLaMA v1 only supports circa 20 languages).  
+
 ## Dependencies:
 
 - PyTorch >= 1.7.0
@@ -164,7 +167,16 @@ Follow-up Work:
     year      = {2022}
 }
 ```
-
+Code available at [BLICEr](https://github.com/cambridgeltl/BLICEr).
+```bibtex
+@inproceedings{li-etal-2023-bilingual,
+    title     = {On Bilingual Lexicon Induction with Large Language Models},
+    author    = {Li, Yaoyiran and Korhonen, Anna and Vuli{\'c}, Ivan},
+    booktitle = {Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing},    
+    year      = {2023}
+}
+``` 
+Code available at [Prompt4BLI](https://github.com/cambridgeltl/prompt4bli).
 ```bibtex
 @inproceedings{li-etal-2024-self-augmented,
     title     = {Self-Augmented In-Context Learning for Unsupervised Word Translation},
@@ -173,3 +185,4 @@ Follow-up Work:
     year      = {2024}
 }
 ```
+Code available at [SAIL](https://github.com/cambridgeltl/sail-bli).
